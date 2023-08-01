@@ -1,0 +1,21 @@
+.bar{
+    max-width: 220px;
+    margin-left: 40%;
+}
+.butt{
+    margin-bottom: 20px;
+    margin-left: 49%;
+}
+.inputhere{
+    margin-left: 41%;
+    margin-top: 5px;
+    border-inline: block; 
+}
+.inputhere1{
+    margin-left: 49%;
+    margin-bottom: 5px;
+    border-inline: block; 
+}
+.all{
+    background-color: #bfbfbf;
+}

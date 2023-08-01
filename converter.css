@@ -1,0 +1,15 @@
+
+.form-group {
+    display: inline-block;
+    margin: 10px;
+  }
+  
+
+  .butt {
+    display: block;
+    margin: 10px;
+  }
+  
+.back {
+    background-color: #bfbfbf;
+}

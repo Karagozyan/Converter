@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Converter</title>
+    <link rel="stylesheet" href="converter.css">
+    <link href="C:\Users\haykk\OneDrive\Documents\Converter\bootstrap\bootstrap.css" rel="stylesheet">
+</head>
+<body class="back">
+  <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href=""><img style=" margin-left:7px  ;" width="95px  " src="C:\Users\haykk\OneDrive\Documents\Converter\img\icon.png"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a  class="nav-link" href="C:\Users\haykk\OneDrive\Documents\Converter\converter.html">Home</a>
+                  <span class="visually-hidden">(current)</span>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="C:\Users\haykk\OneDrive\Documents\Converter\index.html">Valute</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="C:\Users\haykk\OneDrive\Documents\Converter\solarsystem.html">Planets</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="C:\Users\haykk\OneDrive\Documents\Converter\about.html">About</a>
+                </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div class="container">
+        <div class="row">
+            <!-- fahrtocelsius or celsiustofaren -->
+            <div>
+              <label for="celsius">Celsius: </label>
+              <input type="text" id="celsius" placeholder="Enter Celsius">
+              <button onclick="convertCelsiusToFahrenheit()">Convert to Fahrenheit</button>
+              <p id="fahrenheitResult"></p>
+            </div>
+            <div>
+              <label for="fahrenheit">Fahrenheit: </label>
+              <input type="text" id="fahrenheit" placeholder="Enter Fahrenheit">
+              <button onclick="convertFahrenheitToCelsius()">Convert to Celsius</button>
+              <p id="celsiusResult"></p>
+            </div>
+
+            <div>
+              <label for="kilometer">Kilometer:</label>
+              <input type="text" id="kilometerInput" placeholder="Enter Kilometer">
+              <button onclick="convertKmToMile()">Convert to Mile</button>
+              <p id="mileResult"></p>
+            </div>
+            
+            <div>
+              <label for="mile">Mile:</label>
+              <input type="text" id="mileInput" placeholder="Enter Mile">
+              <button onclick="convertMileToKm()">Convert to Kilometer</button>
+              <p id="kilometerResult"></p>
+            </div>
+            
+            <!-- Kilogram to Pound -->
+            <!-- <div class="col-md-4">
+              <div class="form-group">
+                <label class="col-form-label mt-4" for="kilogramInput">Kilogram</label>
+                <input type="text" class="form-control" placeholder="Enter Kilograms" id="kilogramInput">
+              </div>
+              <div class="form-group">
+                <label class="col-form-label mt-4" for="poundInput">Pound</label>
+                <input type="text" class="form-control" placeholder="Enter Pounds" id="poundInput">
+              </div>
+              <button class="butt" onclick="convertKgToPound()">Convert Kilograms to Pounds</button>
+              <button class="butt" onclick="convertPoundToKg()">Convert Pounds to Kilograms</button> -->
+
+              <div>
+                <label for="kilogramInput">Kilogram: </label>
+                <input type="text" id="kilogramInput" placeholder="Enter Kilograms">
+                <button onclick="convertKgToPound()">Convert Kilograms To Pounds</button>
+                <p id="mileResult"></p>
+              </div>
+
+
+              <div>
+                <label for="poundInput">Pound: </label>
+                <input type="text" id="poundInput" placeholder="Enter pounds">
+                <button onclick="convertPoundToKg()">Convert Pounds To Kilogram</button>
+                <p id="kilometerResult"></p>
+              </div>
+  
+
+    <script>
+      function celsiusToFahrenheit(celsius) {
+        return (celsius * 9 / 5) + 32;
+      }
+      
+      function fahrenheitToCelsius(fahrenheit) {
+        return (fahrenheit - 32) * 5 / 9;
+      }
+      
+      function convertCelsiusToFahrenheit() {
+        let celsiusInput = document.getElementById('celsius');
+        let fahrenheitResult = document.getElementById('fahrenheitResult');
+      
+        let celsiusValue = parseFloat(celsiusInput.value);
+        if (!isNaN(celsiusValue)) {
+          let fahrenheitValue = celsiusToFahrenheit(celsiusValue);
+          fahrenheitResult.innerText = `Result: ${fahrenheitValue.toFixed(2)} °F`;
+        } else {
+          fahrenheitResult.innerText = "Invalid input";
+        }
+      }
+      
+      function convertFahrenheitToCelsius() {
+        let fahrenheitInput = document.getElementById('fahrenheit');
+        let celsiusResult = document.getElementById('celsiusResult');
+      
+        let fahrenheitValue = parseFloat(fahrenheitInput.value);
+        if (!isNaN(fahrenheitValue)) {
+          let celsiusValue = fahrenheitToCelsius(fahrenheitValue);
+          celsiusResult.innerText = `Result: ${celsiusValue.toFixed(2)} °C`;
+        } else {
+          celsiusResult.innerText = "Invalid input";
+        }
+      }
+      
+      function convertKmToMile() {
+        const kilometerInput = document.getElementById('kilometerInput').value;
+        const mileResult = document.getElementById('mileResult');
+        const mileValue = kilometerInput * 0.621371;
+        mileResult.innerText = `${kilometerInput} Kilometers is equal to ${mileValue.toFixed(2)} Miles.`;
+      }
+   
+      function convertMileToKm() {
+        const mileInput = document.getElementById('mileInput').value;
+        const kilometerResult = document.getElementById('kilometerResult');
+        const kilometerValue = mileInput / 0.621371;
+        kilometerResult.innerText = `Reuslt ${kilometerValue.toFixed(2)} Kilometers.`;
+      }
+      
+      function kilogramToPound(kilogram) {
+        return kilogram * 2.20462; // 1 kilogram = 2.20462 pounds
+      }
+      
+      function poundToKilogram(pound) {
+        return pound * 0.453592; // 1 pound = 0.453592 kilograms
+      }
+      
+      function convertKgToPound() {
+        let kilogramInput = document.getElementById('kilogramInput');
+        let poundInput = document.getElementById('poundInput');
+      
+        let kilogramValue = parseFloat(kilogramInput.value);
+        if (!isNaN(kilogramValue)) {
+          let poundValue = kilogramToPound(kilogramValue);
+          poundInput.value = poundValue.toFixed(2);
+        } else {
+          poundInput.value = "Invalid Input";
+        }
+      }
+      
+      function convertPoundToKg() {
+        let poundInput = document.getElementById('poundInput');
+        let kilogramInput = document.getElementById('kilogramInput');
+      
+        let poundValue = parseFloat(poundInput.value);
+        if (!isNaN(poundValue)) {
+          let kilogramValue = poundToKilogram(poundValue);
+          kilogramInput.value = kilogramValue.toFixed(2);
+        } else {
+          kilogramInput.value = "Invalid Input";
+        }
+      }
+      
+      function kilogramToKilopound(kilogram) {
+        return kilogram / 0.453592; // 1 kilopound = 1000 pounds
+      }
+      
+      function kilopoundToKilogram(kilopound) {
+        return kilopound * 0.453592; // 1 kilopound = 1000 pounds
+      }
+      
+      function convertKgToKilopound() {
+        let kilogramInput = document.getElementById('kilogramToKilopoundInput');
+        let kilopoundOutput = document.getElementById('kilopoundOutput');
+
+        let kilogramValue = parseFloat(kilogramInput.value);
+        if (!isNaN(kilogramValue)) {
+          let kilopoundValue = kilogramToKilopound(kilogramValue);
+          kilopoundOutput.value = kilopoundValue.toFixed(2);
+        } else {
+          kilopoundOutput.value = "Invalid Input";
+        }
+      }
+    </script>
+  <script src="converter.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+</body>
+</html>
